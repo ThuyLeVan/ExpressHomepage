@@ -138,23 +138,16 @@ jQuery(function($) {'use strict';
 	//smoothScroll
 	smoothScroll.init();
 
-	// project filter
-	$(window).load(function(){'use strict';
-		var $portfolio_selectors = $('.project-filter >li>a');
-		var $portfolio = $('.project-items');
-		$portfolio.isotope({
-			itemSelector : '.project-item',
-			layoutMode : 'fitRows'
-		});
-		
-		$portfolio_selectors.on('click', function(){
-			$portfolio_selectors.removeClass('active');
-			$(this).addClass('active');
-			var selector = $(this).attr('data-filter');
-			$portfolio.isotope({ filter: selector });
-			return false;
-		});
+	// project slider
+	$('.carouselproject').owlCarousel({
+		items:3,
+		autoplay:true,
+		navigation : true,
+		navigationText: [
+			"<i class='fa fa-angle-left'></i>",
+			"<i class='fa fa-angle-right'></i>"]
 	});
+
 
 	$(document).ready(function() {
 		//Animated Progress company skill
@@ -197,12 +190,6 @@ jQuery(function($) {'use strict';
 		});
 	});
 
-	
-
-	//Pretty Photo zoom images project
-	$("a[rel^='prettyPhoto']").prettyPhoto({
-		social_tools: false
-	});
 	// to top
 	(function () {
         $(window).scroll(function() {
